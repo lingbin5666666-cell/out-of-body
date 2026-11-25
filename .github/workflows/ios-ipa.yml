@@ -25,7 +25,7 @@ jobs:
           xcodebuild -project OutOfBody.xcodeproj -scheme OutOfBody \
             -configuration Release -destination 'generic/platform=iOS' \
             -derivedDataPath "$RUNNER_TEMP/out-of-body" \
-            CODE_SIGNING_ALLOWED=NO build
+            CODE_SIGNING_ALLOWED=NO SWIFT_ACTIVE_COMPILATION_CONDITIONS=OOB_NO_HINGE_API build
       - name: Package IPA for local signing
         run: |
           app="$RUNNER_TEMP/out-of-body/Build/Products/Release-iphoneos/OutOfBody.app"

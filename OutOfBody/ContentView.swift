@@ -86,6 +86,7 @@ struct MetalView: UIViewRepresentable {
             view.addGestureRecognizer(tap)
         }
         // 折叠机的铰链（iOS 27.1 起）：虚拟手机要和真机开合得一样。
+        #if !OOB_NO_HINGE_API
         if #available(iOS 27.1, *) {
             let model = self.model
             var logged = -1
@@ -109,6 +110,7 @@ struct MetalView: UIViewRepresentable {
                 }
             })
         }
+        #endif
         return view
     }
 
